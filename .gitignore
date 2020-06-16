@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+pyexcel/*.xlsx
+pyexcel/*.xls
+pyexcel/.idea
+.idea
