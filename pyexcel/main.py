@@ -109,4 +109,4 @@ if __name__ == '__main__':
         saveData("out_" + input, data)
     except Exception as e:
         s = sys.exc_info()
-        print ("Error '%s' happened on line %d, %s" % (s[1], s[2].tb_lineno), e)
+        print("Error '%s' happened on line %d, %s" % (s[1], s[2].tb_lineno, e))
