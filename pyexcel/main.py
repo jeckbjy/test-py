@@ -2,9 +2,9 @@
 from openpyxl import Workbook
 from openpyxl import load_workbook
 import sys
+import os
 
 
-# 加载转换表
 def loadUom(file):
     wb = load_workbook(file)
     sh1 = wb['Sheet1']
@@ -34,12 +34,10 @@ def loadUom(file):
     return r1, r2
 
 
-# 将字符转换为下表
 def toIndex(ch):
     return ord(ch) - ord('A')
 
 
-# 转换ItemDesc,并返回前缀
 def convItemDesc(desc, map):
     (s1, s2, s3) = desc.partition(" ")
     if s1 not in map.keys():
@@ -75,7 +73,6 @@ def loadData(file, sheet, uom):
         t *= x
         u *= x
 
-        # 合并
         if k in result.keys():
             old = result[k]
             old[1] += t
@@ -87,7 +84,6 @@ def loadData(file, sheet, uom):
     return result
 
 
-# 保持结果
 def saveData(file, data):
     wb = Workbook()
     ws = wb.active
@@ -101,12 +97,13 @@ def saveData(file, data):
 
 if __name__ == '__main__':
     try:
-        input = "15_06_20_sales.xlsx"
+        # input = "15_06_20_sales.xlsx"
+        filename = sys.argv[1]
+        input = os.path.join("input", filename)
         uom = loadUom("HKA_UOM.XLSX")
-        # print(uom)
         data = loadData(input, "Data", uom)
-        # print(data)
-        saveData("out_" + input, data)
+        outfile = os.path.join("output", filename)
+        saveData(outfile, data)
     except Exception as e:
         s = sys.exc_info()
         print("Error '%s' happened on line %d, %s" % (s[1], s[2].tb_lineno, e))

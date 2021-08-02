@@ -131,3 +131,6 @@ pyexcel/*.xlsx
 pyexcel/*.xls
 pyexcel/.idea
 .idea
+
+./pyexcel/input
+./pyexcel/output
