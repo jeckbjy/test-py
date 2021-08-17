@@ -7,3 +7,4 @@
 - [飞浆框架全景图](https://www.paddlepaddle.org.cn/tutorials/projectdetail/2166614)
 - [numpy](https://www.runoob.com/numpy/numpy-tutorial.html)
 - [梯度自动计算-链式法则](https://zhuanlan.zhihu.com/p/31708783)
+- [Reverse-mode Automatic Differentiation](https://github.com/dlsys-course/assignment1-2018)
